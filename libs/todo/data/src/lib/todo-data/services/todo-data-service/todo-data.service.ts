@@ -27,7 +27,7 @@ export class TodoDataService {
     return this._todoHttpService.post(todo).pipe(
       tap((resp) => {
         const idx = this._todoEntries.value.findIndex((entry) => entry.id === resp.id);
-        if (idx > 0) {
+        if (idx > -1) {
           this._todoEntries.value[idx] = todo;
           this._todoEntries.next([...this._todoEntries.value]);
         }

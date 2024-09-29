@@ -61,6 +61,7 @@ export class CreateTodoComponent {
   public onClickSubmit() {
     if (!this.formGroup.valid) {
       this.formGroup.markAllAsTouched();
+      return;
     }
 
     this.createTodoEvent.emit({
