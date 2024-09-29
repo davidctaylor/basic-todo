@@ -1,0 +1,29 @@
+<form class="flex flex-col gap-4 md:flex-row" [formGroup]="formGroup">
+
+  <div class="input flex flex-col w-full">
+    <label class="text-sm text-slate-500" for="todo-title-input">Title</label>
+    <input
+      class="rounded-lg border border-solid border-slate-600 p-3 h-[40px]"
+      [formControl]="title"
+      id="todo-title-input"
+      type="text"
+      placeholder="Title"
+      [required]="true"
+      [ngClass]="{'border-red-600': title.invalid && title.touched}"
+    />
+  </div>
+
+  <div class="input flex flex-col w-full">
+    <label class="text-sm text-slate-500" for="todo-comment-input">Notes</label>
+    <input
+      class="rounded-lg border border-solid border-slate-600 p-3 h-[40px]"
+      [formControl]="note"
+      id="todo-comment-input"
+      type="text"
+      placeholder="Notes"
+      [ngClass]="{'border-red-600': note.invalid && note.touched}"
+    />
+  </div>
+  <button class="todo-button disabled" (click)="onClickSubmit()" [disabled]="submitActive"
+    [ngClass]="{'disabled': submitActive}">Submit</button>
+</form>

@@ -1,0 +1,25 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@todo/shared-data": ["libs/shared/data/src/index.ts"],
+      "@todo/shared-ui": ["libs/shared/ui/src/index.ts"],
+      "@todo/todo-data": ["libs/todo/data/src/index.ts"],
+      "@todo/todo-feature-home": ["libs/todo/feature-home/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

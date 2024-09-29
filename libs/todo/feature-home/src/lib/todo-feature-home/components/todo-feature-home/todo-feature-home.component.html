@@ -1,0 +1,32 @@
+<lib-todo-header></lib-todo-header>
+<main class="container mx-auto flex flex-col gap-4">
+  <div class="border p-4 rounded-2xl mt-4">
+    <h2 class="text-lg pb-2">Create or update todo</h2>
+
+    <lib-todo-create-todo
+      (createTodoEvent)="onCreateTodoEvent($event)"
+      [submitActive]="todoCreateActive"
+      [todoUpdate]="todoUpdate"
+    ></lib-todo-create-todo>
+  </div>
+
+  <h2 class="text-lg pt-4">My todo's</h2>
+
+  <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-8">
+    @for (todo of $any(todos$ | async); track todo.id) {
+    <lib-shared-ui-card title="{{ todo.title }}">
+      <div class="flex flex-col gap-y-4">
+        <span>{{ todo.note }}</span>
+        <div class="flex justify-end gap-x-4">
+          <button class="todo-button secondary" (click)="onClickUpdate(todo)">
+            Update
+          </button>
+          <button class="todo-button" (click)="onClickRemove(todo)">
+            Remove
+          </button>
+        </div>
+      </div>
+    </lib-shared-ui-card>
+    }
+  </div>
+</main>
